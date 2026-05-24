@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  /* Dark mode (default) */
+  :root {
+    --color-bg:       #0F1923;
+    --color-sidebar:  #111C27;
+    --color-card:     #162032;
+    --color-border:   #1E2D3D;
+    --color-text:     #F1F5F9;
+    --color-muted:    #94A3B8;
+    --color-teal:     #06B6D4;
+    --color-teal-dim: #0F766E;
+  }
+
+  /* Light mode */
+  .light {
+    --color-bg:       #F0F4F8;
+    --color-sidebar:  #FFFFFF;
+    --color-card:     #FFFFFF;
+    --color-border:   #E2E8F0;
+    --color-text:     #0F172A;
+    --color-muted:    #64748B;
+    --color-teal:     #0F766E;
+    --color-teal-dim: #0D9488;
+  }
+}
+
+@layer components {
+  .sg-bg        { background-color: var(--color-bg); }
+  .sg-sidebar   { background-color: var(--color-sidebar); }
+  .sg-card      { background-color: var(--color-card); }
+  .sg-border    { border-color: var(--color-border); }
+  .sg-text      { color: var(--color-text); }
+  .sg-muted     { color: var(--color-muted); }
+
+  .sg-input {
+    @apply w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-colors;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  .sg-input:focus {
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.15);
+  }
+  .sg-input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .sg-btn-primary {
+    @apply w-full flex items-center justify-center gap-2 rounded-lg py-2.5 text-sm font-semibold text-white transition-opacity;
+    background: linear-gradient(135deg, #0F766E, #06B6D4);
+  }
+  .sg-btn-primary:hover { opacity: 0.9; }
+
+  .nav-item {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer;
+    color: var(--color-muted);
+  }
+  .nav-item:hover {
+    background-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .nav-item.active {
+    background-color: rgba(6, 182, 212, 0.15);
+    color: var(--color-teal);
+    border-left: 2px solid var(--color-teal);
+  }
+
+  .page-transition {
+    animation: fade-in 220ms ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
