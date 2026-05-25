@@ -3,3 +3,7 @@ deepseek_mermaid_20260512_907486.png
 *.docx
 *.pdf
 *pic.docx
+.conda
+you/
+venv/
+__pycache__/
