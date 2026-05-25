@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8071',
+        target: 'REACT_APP_API_URL',
         changeOrigin: true,
       },
     },
