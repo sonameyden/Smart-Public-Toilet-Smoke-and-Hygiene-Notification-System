@@ -156,6 +156,3 @@ Next steps I can help with
 - Add a `.env.example` file for the backend with required keys.
 - Add a `docker-compose.frontend.yml` to host the frontend inside Docker for an end-to-end `docker-compose up` experience.
 - Create short HOWTO scripts for flashing the Pico W via command line tools.
-
----
-Generated README covering repository structure, architecture, MQTT topics, and run instructions. Ask me to expand any section or to add `README` links to specific files.
