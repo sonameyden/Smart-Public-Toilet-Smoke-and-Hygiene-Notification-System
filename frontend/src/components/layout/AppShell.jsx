@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import Sidebar from './Sidebar'
+import { connectWS, disconnectWS } from '../../lib/ws-client'
 
 const PAGE_TITLES = {
   '/app/dashboard':   'Dashboard',
@@ -25,6 +26,15 @@ function PageLoader() {
 export default function AppShell() {
   const { pathname } = useLocation()
   const title = PAGE_TITLES[pathname] ?? 'Dashboard'
+
+  // Initialize WebSocket connection when user enters protected routes
+  useEffect(() => {
+    connectWS()
+    return () => {
+      // Don't disconnect on unmount — keep connection alive across page changes
+      // disconnectWS()
+    }
+  }, [])
 
   return (
     <div className="flex h-screen sg-bg overflow-hidden">

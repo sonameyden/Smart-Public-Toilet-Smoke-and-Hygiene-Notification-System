@@ -4,7 +4,7 @@ from typing import Optional
 
 
 # Default detection thresholds — overridden by system_settings table at runtime
-DEFAULT_SMOKE_THRESHOLD = 50.0      # ppm
+DEFAULT_SMOKE_THRESHOLD = 150.0      # ppm
 DEFAULT_GAS_THRESHOLD = 100.0       # ppm
 DEFAULT_AIR_QUALITY_THRESHOLD = 70  # score (below this = warning)
 
